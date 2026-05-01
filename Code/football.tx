@@ -1,0 +1,104 @@
+Program:
+    statements*=Statement
+;
+
+Statement:
+      CoinToss
+    | Announce
+    | SetVar
+    | MathUpdate
+    | DriveLoop
+    | WhenBlock
+    | Gain
+    | TurnoverStatement
+    | PuntStatement
+    | PlayDef
+    | RunPlay
+;
+
+CoinToss:
+    'coin_toss'
+;
+
+Announce:
+    'announce' value=Value
+;
+
+SetVar:
+    'set' name=ID 'to' value=Value
+;
+
+MathUpdate:
+    name=ID op=MathOp value=Value
+;
+
+MathOp:
+      'holding'
+    | 'false_start'
+    | 'double_team'
+    | 'split'
+;
+
+DriveLoop:
+    'drive' 'while' condition=Condition
+        statements*=Statement
+    'end'
+;
+
+WhenBlock:
+    'when' condition=Condition
+        true_statements*=Statement
+    ('otherwise'
+        false_statements*=Statement
+    )?
+    'end'
+;
+
+PlayDef:
+    'play' name=ID
+        statements*=Statement
+    'end'
+;
+
+RunPlay:
+    'run_play' name=ID
+;
+
+Gain:
+    'gain' value=Value
+;
+
+TurnoverStatement:
+    'turnover'
+;
+
+PuntStatement:
+    'punt'
+;
+
+Condition:
+      DivisibleCondition
+    | CompareCondition
+;
+
+DivisibleCondition:
+    left=Value 'flagged_by' first=Value ('and' second=Value)?
+;
+
+CompareCondition:
+    left=Value op=CompareOp right=Value
+;
+
+CompareOp:
+      '<='
+    | '>='
+    | '=='
+    | '<'
+    | '>'
+;
+
+Value:
+      INT
+    | STRING
+    | ID
+;

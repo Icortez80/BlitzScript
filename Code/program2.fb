@@ -1,0 +1,33 @@
+coin_toss
+
+set down to 1
+
+drive while down <= 20
+
+    when down == 13
+        announce "Turnover on play 13 - ending the drive"
+        turnover
+    end
+
+    when down flagged_by 4
+        down holding 1
+        punt
+    end
+
+    when down flagged_by 3 and 5
+        announce "FizzBuzz"
+    end
+
+    when down flagged_by 3
+        announce "Fizz"
+    end
+
+    when down flagged_by 5
+        announce "Buzz"
+    otherwise
+        announce down
+    end
+
+    down holding 1
+
+end

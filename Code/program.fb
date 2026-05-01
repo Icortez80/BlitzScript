@@ -1,0 +1,61 @@
+coin_toss
+
+announce "Opening drive begins"
+
+// --- FizzBuzz with punt (skip) and turnover (break) ---
+
+set play to 1
+
+drive while play <= 20
+
+    // Stop the drive early once we hit play 13
+    when play == 13
+        announce "Turnover on play 13 - ending the drive"
+        turnover
+    end
+
+    // Skip announcing anything for multiples of 4
+    when play flagged_by 4
+        play holding 1
+        punt
+    end
+
+    when play flagged_by 3 and 5
+        announce "FizzBuzz"
+
+    when play flagged_by 3
+        announce "Fizz"
+
+    when play flagged_by 5
+        announce "Buzz"
+
+    otherwise
+        announce play
+    end
+
+    play holding 1
+
+end
+
+// --- gain: play that returns a value ---
+
+play GetYardage
+    announce "Running the play..."
+    gain 7
+end
+
+set yards to run_play GetYardage
+announce "Yards gained:"
+announce yards
+
+// --- PostRoute play ---
+
+play PostRoute
+    announce "Formation: spread"
+    announce "Defense: cover2"
+    announce "QB throws to X receiver"
+    announce "X runs a post route"
+    announce "Outcome: first down"
+end
+
+run_play PostRoute
