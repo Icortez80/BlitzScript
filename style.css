@@ -262,6 +262,12 @@ aside pre {
   white-space: pre;
 }
 
+#code_blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
 /* Code token colors */
 .kw  { color: #f5c842; font-weight: 600; }  /* keywords */
 .fn  { color: #7ed9a8; }                     /* function names */

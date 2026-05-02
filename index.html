@@ -36,7 +36,7 @@
                 bridge that mental gap with football concepts that most fans already know and
                 understand, creating a more approachable language.</p>
         </section>
-
+        <div id="code_blocks">
         <aside>
             <div class="aside-header">
                 <span class="dot red"></span>
@@ -44,12 +44,36 @@
                 <span class="dot green"></span>
                 <h3>helloWorld.bs</h3>
             </div>
-            <pre><code><span class="cmt">// BlitzScript — your first play</span>
+            <pre><code><span class="cmt">// BlitzScript - your first play</span>
 <span class="kw">coin_toss</span>
     <span class="fn">announce</span> <span class="str">"Hello, World!"</span>
 <span class="kw">end</span>
-
         </aside>
+        <aside>
+            <div class="aside-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <h3>FizzBuzz.bs</h3>
+            </div>
+            <pre><code><span class="cmt">// FizzBuzz - The Classic</span>
+<span class="kw">coin_toss</span>
+    <span class="fn">drive while play</span> <span class="str"> <= 100</span>
+        <span class="fn">when play flagged_by</span><span class="str"> 3 and 5</span>
+                <span class="fn">announce</span> <span class="str">"FizzBuzz"</span>
+        <span class="fn">when play flagged_by</span><span class="str"> 5</span>
+                <span class="fn">announce</span> <span class="str">"Fizz"</span>
+        <span class="fn">when play flagged_by</span><span class="str"> 3</span>
+                <span class="fn">announce</span> <span class="str">"Buzz"</span>
+        <span class="fn">otherwise</span>
+                <span class="cmt">// This will output the current integer</span>
+                <span class="fn">announce</span> <span class="str">play</span>
+        <span class="kw">end</span>
+        <span class="cmt">// Increment the integer by 1</span>
+        <span class="fn">play holding</span> <span class="str">1</span>
+<span class="kw">end</span>
+        </aside>
+    </div>
     </main>
 
     <footer>
