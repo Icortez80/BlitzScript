@@ -1,0 +1,7 @@
+coin_toss
+
+set yards to 5
+yards holding 3
+
+announce "Total yards:"
+announce yards

@@ -1,0 +1,13 @@
+coin_toss
+
+play PostRoute
+    announce "Formation: spread"
+    announce "Defense: cover2"
+    announce "QB throws to X receiver"
+    announce "X runs a post route"
+    announce "Outcome: first down"
+end
+
+announce "Opening drive begins!"
+
+run_play PostRoute

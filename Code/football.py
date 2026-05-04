@@ -1,4 +1,5 @@
 from textx import metamodel_from_file
+import sys
 
 
 # ---------------------------------------------------------------------------
@@ -174,8 +175,12 @@ class FootballInterpreter:
 # ---------------------------------------------------------------------------
 
 def main():
+    if len(sys.argv) < 2:
+        print("Usage: python interpreter.py <program.fb>")
+        sys.exit(1)
+
     mm = metamodel_from_file("football.tx")
-    program = mm.model_from_file("program2.fb")
+    program = mm.model_from_file(sys.argv[1])
 
     interpreter = FootballInterpreter()
     try:

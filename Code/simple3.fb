@@ -1,0 +1,9 @@
+coin_toss
+
+set down to 4
+
+when down == 4
+    announce "Fourth down - punt situation"
+otherwise
+    announce "Keep playing"
+end

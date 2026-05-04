@@ -1,0 +1,5 @@
+coin_toss
+
+set score to 10
+announce "Current score:"
+announce score

@@ -1,0 +1,21 @@
+coin_toss
+
+set down to 1
+drive while down <= 100
+    when down flagged_by 3 and 5
+        announce "RushPass"
+    end
+
+     when down flagged_by 5
+        announce "Rush"
+    end
+
+    when down flagged_by 3
+        announce "Pass"
+    otherwise
+        announce down
+    end
+    
+    down holding 1
+
+end

@@ -1,0 +1,79 @@
+play GetYards
+    announce "Running offensive play..."
+
+    set result to 3
+
+    when result flagged_by 3
+        announce "Short gain play"
+        total_yards holding 3
+        drive_yards holding 3
+        gain 3
+    end
+
+    when result flagged_by 5
+        announce "Medium gain play"
+        total_yards holding 5
+        drive_yards holding 5
+        gain 5
+    otherwise
+        announce "Breakaway run!"
+        total_yards holding 12
+        drive_yards holding 12
+        gain 12
+    end
+end
+
+
+play TrickPlay
+    announce "Fake handoff... QB throws deep!"
+    total_yards holding 20
+    drive_yards holding 20
+    gain 20
+end
+
+
+coin_toss
+announce "Game Start: Offense takes the field"
+
+set down to 1
+set total_yards to 0
+set drive_yards to 0
+set plays to 1
+
+drive while plays <= 10
+
+    announce "Current down:"
+    announce down
+
+    run_play GetYards
+
+    announce "Drive yards:"
+    announce drive_yards
+
+    announce "Total yards so far:"
+    announce total_yards
+
+    when drive_yards >= 10
+        announce "First down! Resetting downs."
+        set down to 1
+        set drive_yards to 0
+    otherwise
+        down holding 1
+    end
+
+    when down == 5
+        announce "Turnover on downs."
+        turnover
+    end
+
+    plays holding 1
+
+end
+
+announce "Drive ended."
+announce "Final yardage:"
+announce total_yards
+
+announce "Trying a trick play..."
+run_play TrickPlay
+announce "TOUCHDOWN"
